@@ -1,0 +1,10 @@
+{
+  "name": "jackie-jeans-smart-fit-onboarding",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mobile-first Jackie Jeans onboarding with manual and browser voice fit quiz flows.",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check app.js"
+  }
+}
