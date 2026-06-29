@@ -197,8 +197,7 @@
     } else {
       renderVoice();
     }
-    
-    // Auto-update slider positions
+
     const activeSlider = document.querySelector(".tape-slider");
     if (activeSlider) {
       const sliderId = activeSlider.dataset.fieldSlider;
@@ -214,7 +213,6 @@
       }, 20);
     }
 
-    // Auto-start voice canvas if on voice screen
     if (state.mode === "voice") {
       setTimeout(startCanvasAnimation, 20);
     } else {
@@ -347,7 +345,7 @@
     if (!ticksEl || !tapeEl) return;
     const tapeWidth = tapeEl.offsetWidth || 380;
     const valIndex = (value - min) / step;
-    const tickWidth = 15; // 15px per tick width in CSS
+    const tickWidth = 15; 
     const translation = (tapeWidth / 2) - (valIndex * tickWidth);
     ticksEl.style.transform = `translateX(${translation}px)`;
   }
@@ -421,7 +419,6 @@
       </div>
     `);
 
-    // Auto-start handoff countdown
     setTimeout(startHandoffCountdown, 100);
   }
 
@@ -683,9 +680,7 @@
       const slider = event.target.dataset.fieldSlider;
 
       if (slider) {
-        // height is saved as raw inches (e.g. 66)
-        // weight is saved as raw lbs (e.g. 150)
-        // waist/hip are saved with quotes (e.g. 32")
+
         if (slider === "height" || slider === "weight") {
           state.answers[slider] = String(event.target.value);
         } else {
@@ -777,7 +772,7 @@
     state.screen = "quiz";
     state.mode = "manual";
     state.step = firstIncompleteStep();
-    // Default sliders to middle value if they don't exist yet
+    
     if (!state.answers.height) state.answers.height = "66";
     if (!state.answers.waist) state.answers.waist = "32\"";
     if (!state.answers.hip) state.answers.hip = "40\"";
@@ -947,7 +942,7 @@
     };
 
     recognition.onerror = (e) => {
-      // Speech recognition might fail if silent, we re-prompt if active
+      
       if (e.error !== "no-speech") {
         state.voice.listening = false;
         render();
@@ -1070,7 +1065,7 @@
       try {
         state.voice.recognition.stop();
       } catch (error) {
-        // SpeechRecognition throws if it has already stopped.
+        
       }
     }
     state.voice.recognition = null;

@@ -5,6 +5,7 @@
   "description": "Mobile-first Jackie Jeans onboarding with manual and browser voice fit quiz flows.",
   "scripts": {
     "start": "node server.mjs",
+    "build": "echo 'Static build complete'",
     "check": "node --check app.js"
   }
 }
