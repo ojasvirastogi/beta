@@ -1,3 +1,15 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "styles.css", "use": "@vercel/static" },
+    { "src": "app.js", "use": "@vercel/static" },
+    { "src": "smart_fit_mockup.png", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/styles.css", "dest": "/styles.css" },
+    { "src": "/app.js", "dest": "/app.js" },
+    { "src": "/smart_fit_mockup.png", "dest": "/smart_fit_mockup.png" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
